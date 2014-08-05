@@ -91,9 +91,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ValidationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\ValuesControllerTest.cs" />
     <Compile Include="Services\ValidationServiceTest.cs" />
+    <Compile Include="Services\ValidationType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
