@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using Facensa.SegurancaApp.Areas.HelpPage;
 
 namespace Facensa.SegurancaApp
 {
@@ -13,6 +16,10 @@ namespace Facensa.SegurancaApp
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

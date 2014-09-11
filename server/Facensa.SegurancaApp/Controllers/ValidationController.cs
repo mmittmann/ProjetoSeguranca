@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Facensa.SegurancaApp.Services;
 
 namespace Facensa.SegurancaApp.Controllers
 {
@@ -6,7 +7,11 @@ namespace Facensa.SegurancaApp.Controllers
     {
         public IHttpActionResult Get(string word)
         {
-            return Ok();
+            var validation = new PasswordValidationService();
+            var response  = validation.MeasurePasswordStrength(word);
+
+            return Ok(response);
         }
+
     }
 }
