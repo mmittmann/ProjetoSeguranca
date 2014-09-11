@@ -1,0 +1,9 @@
+/bin
+/obj
+/packages
+Facensa.SegurancaApp/bin
+Facensa.SegurancaApp/obj
+Facensa.SegurancaApp.Tests/bin
+Facensa.SegurancaApp.Tests/obj
+*.suo
+

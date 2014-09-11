@@ -1,0 +1,8 @@
+/bower_components
+/node_modules
+/server/packages
+/server/TestResults
+/server/Facensa.SegurancaApp.Tests/bin
+/server/Facensa.SegurancaApp.Tests/obj
+/server/Facensa.SegurancaApp/bin
+/server/Facensa.SegurancaApp/obj
