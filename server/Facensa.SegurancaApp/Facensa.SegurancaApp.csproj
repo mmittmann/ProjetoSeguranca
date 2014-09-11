@@ -134,6 +134,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Commands\CharContainsValidation.cs" />
+    <Compile Include="Commands\DateValidation.cs" />
     <Compile Include="Commands\DicionaryValidation.cs" />
     <Compile Include="Commands\IValidationCommand.cs" />
     <Compile Include="Commands\LengthPasswordValidation.cs" />

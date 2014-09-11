@@ -17,7 +17,8 @@ namespace Facensa.SegurancaApp.Services
                 new CharContainsValidation(),
                 new DicionaryValidation(),
                 new RepeatCharValidation(),
-                new LengthPasswordValidation()
+                new LengthPasswordValidation(),
+                new DateValidation()
             };
 
             foreach (var validator in validators)
@@ -25,10 +26,10 @@ namespace Facensa.SegurancaApp.Services
                 var validateResponse = validator.Validate(word);
 
                 if (validateResponse == ValidationType.Strong)
-                    passwordStrength += 25;
+                    passwordStrength += 20;
 
                 if (validateResponse == ValidationType.Weak)
-                    passwordStrength -= 25;
+                    passwordStrength -= 20;
             }
 
             return passwordStrength;
