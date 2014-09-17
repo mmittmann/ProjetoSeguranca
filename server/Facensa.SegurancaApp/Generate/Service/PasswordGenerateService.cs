@@ -11,14 +11,11 @@ namespace Facensa.SegurancaApp.Generate.Service
         public PasswordGenerateService()
         {
             _generateCommand = null;
-            
+
         }
         public string Generate(int length, ValidationType validationType)
         {
-            for (var i = 0; i <= length; i++)
-            {
-                
-            }
+            throw new NotImplementedException();
         }
     }
 }
