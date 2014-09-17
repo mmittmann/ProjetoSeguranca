@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Projeto segurança</title>
+</head>
+<body>
+	
+	<fieldset>	
+		<div class='form-control'>
+			<label>Tamanho:</label>
+			<input type="text" id="Length"/>
+		</div>
+		
+		<div class='form-control'>
+			<label>Tipo:</label>
+			<select id="ValidationType">
+				<option value="weak">Fraca</option>
+				<option value="medium">Média</option>
+				<option value="strong">Forte</option>
+			</select>
+		</div>
+		
+		<div class='form-control'>
+			<button id="gerar">Gerar Senha</button>
+		</div>
+	</fieldset>
+	
+	<div class='form-control'>
+		<label>Senha Gerada:</label>
+		<p id="resultado"></p>		
+	</div>
+	
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script>
+
+		var Length = $("#Length").val();
+		var ValidationType = $("#ValidationType").val();
+		
+		var $resultado = $("#resultado");		
+		
+		$("#gerar").click(function(){
+			$resultado.text("Gerando senha...");
+			
+			$.get('http://localhost:5525/api/generate/', {  Length : Length, ValidationType: ValidationType }
+			).done(function(data) {				
+				$resultado.text(data);
+			});
+		});
+	</script>
+</body>
+</html>

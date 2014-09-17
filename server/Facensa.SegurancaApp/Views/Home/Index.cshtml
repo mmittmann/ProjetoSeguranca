@@ -1,14 +1,53 @@
 ﻿<h2>Projeto de segurança</h2>
-<br /><br />
 
-<fieldset>
-    <p id="resultado" class="alert"></p>
-    <legend>Senha:</legend>
-    <input type="text" id="password" />
-    <button id="validar">Validar</button>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Validar senha</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="control-label">Senha:</label>
+            <input type="text" id="password" />
+        </div>
 
+        <div class="form-group">
+            <button id="validar">Validar</button>
+            <p id="resultado" class="alert"></p>
+        </div>
+    </div>
+</div>
 
-</fieldset>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Gerar senha</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class='form-control'>
+            <label class="control-label">Tamanho:</label>
+            <input type="text" id="Length" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Tipo:</label>
+            <select id="ValidationType">
+                <option value="weak">Fraca</option>
+                <option value="medium">Média</option>
+                <option value="strong">Forte</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button id="gerar">Gerar</button>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Senha Gerada:</label>
+            <p id="resultado"></p>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts{
     <script>
@@ -45,6 +84,20 @@
                         $resultado.text("Senha fraca");
                     }
                 });
+        });
+
+
+        $("#gerar").click(function () {
+            var Length = $("#Length").val();
+            var ValidationType = $("#ValidationType").val();
+
+            var $resultado = $("#resultado");
+            $resultado.text("Gerando senha...");
+
+            $.get('http://localhost:5525/api/generate/', { Length: Length, ValidationType: ValidationType }
+			).done(function (data) {
+			    $resultado.text(data);
+			});
         });
     </script>
 }
