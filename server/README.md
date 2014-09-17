@@ -2,7 +2,6 @@ ProjetoSeguranca
 ================
 
 Projeto acadêmico da cadeira de segurança de software
-<<<<<<< HEAD
 
 ========================================================================================================================
 __Especificações__
@@ -136,5 +135,3 @@ Item Data Escopo da avaliação Peso
 5 12/11 Projeto final completo (Requisitos 1 a 6 Artigo final completo
 50% Projeto G1 50% Artigo G1
 
-=======
->>>>>>> 241ccaddb78bce00d614ef33a1f7a5ded59b83c4

@@ -1,0 +1,50 @@
+﻿<h2>Projeto de segurança</h2>
+<br /><br />
+
+<fieldset>
+    <p id="resultado" class="alert"></p>
+    <legend>Senha:</legend>
+    <input type="text" id="password" />
+    <button id="validar">Validar</button>
+
+
+</fieldset>
+
+@section Scripts{
+    <script>
+
+
+        $("#validar").click(function () {
+
+            var pass = $("#password").val();
+            var $resultado = $("#resultado");
+
+            $resultado.text("Carregando...");
+
+
+            $.get('http://localhost:5525/api/validation/', { word: pass })
+                .done(function (data) {
+
+                    if (data > 60) {
+                        $resultado.addClass("alert-success");
+                        $resultado.removeClass("alert-danger");
+                        $resultado.removeClass("alert-info");
+
+                        $resultado.text("Senha forte");
+                    } else if (data > 40 && data <= 60) {
+                        $resultado.addClass("alert-info");
+                        $resultado.removeClass("alert-danger");
+                        $resultado.removeClass("alert-success");
+
+                        $resultado.text("Senha média");
+                    } else {
+                        $resultado.addClass("alert-danger");
+                        $resultado.removeClass("alert-success");
+                        $resultado.removeClass("alert-info");
+
+                        $resultado.text("Senha fraca");
+                    }
+                });
+        });
+    </script>
+}

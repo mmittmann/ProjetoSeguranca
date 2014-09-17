@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Projeto segurança</title>
+</head>
+<body>
+
+
+	<input type="text" id="password"/>
+	<button id="validar">Validar</button>
+	<p id="resultado"></p>
+
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script>
+
+		var word = $("#password").val();
+		var $resultado = $("#resultado");
+
+		$("#validar").click(function(){
+			$.get('http://localhost:5525/api/validation/',{ word : this.word })
+			.done(function(data){
+				
+				if(data >= 75)
+					$resultado.text("Senha forte");
+				else if(data >= 25 && data < 75)
+					$resultado.text("Senha média");
+				else
+					$resultado.text("Senha fraca");
+
+			});
+		});
+	</script>
+</body>
+</html>
