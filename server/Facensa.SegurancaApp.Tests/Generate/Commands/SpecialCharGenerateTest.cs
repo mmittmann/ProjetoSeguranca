@@ -18,7 +18,9 @@ namespace Facensa.SegurancaApp.Tests.Generate.Commands
         [TestMethod]
         public void ShoulbBeGenerateASpecialChar()
         {
+            var result = _generateCommand.Generate();
 
+            Assert.IsTrue((int)result >= 33 && (int)result <= 47);
         }
     }
 }

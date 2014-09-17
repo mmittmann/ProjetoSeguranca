@@ -18,7 +18,11 @@ namespace Facensa.SegurancaApp.Tests.Generate.Commands
         [TestMethod]
         public void ShoulbBeGenerateANumber()
         {
+            int parseTest = 0;
+            var result = _generateCommand.Generate();
 
+            Assert.IsTrue((int)result >= 48 && (int)result <= 57);
+            Assert.IsTrue(int.TryParse(result.ToString(), out parseTest));
         }
     }
 }

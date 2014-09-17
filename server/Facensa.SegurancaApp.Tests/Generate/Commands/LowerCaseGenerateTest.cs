@@ -18,7 +18,9 @@ namespace Facensa.SegurancaApp.Tests.Generate.Commands
         [TestMethod]
         public void ShoulbBeGenerateALowerCase()
         {
+            var result = _generateCommand.Generate();
 
+            Assert.IsTrue((int)result >= 97 && (int)result <= 122);
         }
     }
 }

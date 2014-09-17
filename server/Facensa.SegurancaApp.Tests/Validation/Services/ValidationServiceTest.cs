@@ -1,8 +1,7 @@
-﻿using Facensa.SegurancaApp.Models;
-using Facensa.SegurancaApp.Services;
+﻿using Facensa.SegurancaApp.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Facensa.SegurancaApp.Tests.Services
+namespace Facensa.SegurancaApp.Tests.Validation.Services
 {
     [TestClass]
     public class ValidationServiceTest
@@ -12,7 +11,7 @@ namespace Facensa.SegurancaApp.Tests.Services
         [TestMethod]
         public void WhenWeakWordIsPassedTheResultShouldBeWeak()
         {
-            const string word = "teste";
+            const string word = "teeeste";
 
              _validationService = new PasswordValidationService();
 
@@ -24,7 +23,7 @@ namespace Facensa.SegurancaApp.Tests.Services
         [TestMethod]
         public void WhenMediumWordIsPassedTheResultShouldBeMedium()
         {
-            const string word = "MeDiUm123";
+            const string word = "MeeD123";
 
              _validationService = new PasswordValidationService();
 
@@ -42,13 +41,13 @@ namespace Facensa.SegurancaApp.Tests.Services
 
              var result = _validationService.MeasurePasswordStrength(word);
 
-             Assert.AreEqual(result, 80);
+             Assert.AreEqual(result, 100);
         }
 
         [TestMethod]
         public void WhenWordHas3CharsOrLessShouldBeWeak()
         {
-            var word = "!A3";
+            var word = "aaa";
 
              _validationService = new PasswordValidationService();
 

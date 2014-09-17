@@ -6,7 +6,12 @@ namespace Facensa.SegurancaApp.Generate.Commands
     {
         public char Generate()
         {
-            throw new NotImplementedException();
+            const int upperCaseAsciiInitValue = 97;
+            const int upperCaseAsciiFinalValue = 122;
+
+            var random = new Random();
+
+            return (char)random.Next(upperCaseAsciiInitValue, upperCaseAsciiFinalValue);
         }
     }
 }

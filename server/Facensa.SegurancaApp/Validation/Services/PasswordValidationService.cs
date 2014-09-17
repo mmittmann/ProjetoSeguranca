@@ -31,11 +31,9 @@ namespace Facensa.SegurancaApp.Services
 
                 if (validateResponse == ValidationType.Strong)
                     strongPassword += 20;
-
-                if (validateResponse == ValidationType.Medium)
+                else if (validateResponse == ValidationType.Medium)
                     mediumPassword += 20;
-
-                if (validateResponse == ValidationType.Weak)
+                else
                     weakPassword += 20;
             }
 
