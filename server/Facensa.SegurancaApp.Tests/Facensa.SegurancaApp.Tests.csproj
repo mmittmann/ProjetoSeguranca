@@ -113,13 +113,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Facensa.SegurancaApp\Facensa.SegurancaApp.csproj">
-      <Project>{16E2C255-39D7-4D61-A0ED-FA12C09B2A1F}</Project>
-      <Name>Facensa.SegurancaApp</Name>
-    </ProjectReference>
+    <Folder Include="Application\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\" />
+    <ProjectReference Include="..\Facensa.SegurancaApp\Facensa.SegurancaApp.csproj">
+      <Project>{16e2c255-39d7-4d61-a0ed-fa12c09b2a1f}</Project>
+      <Name>Facensa.SegurancaApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

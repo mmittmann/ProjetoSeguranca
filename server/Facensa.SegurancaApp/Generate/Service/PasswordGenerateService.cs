@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Facensa.SegurancaApp.Commands;
 using Facensa.SegurancaApp.Generate.Commands;
 using Facensa.SegurancaApp.Models;
@@ -9,45 +10,43 @@ namespace Facensa.SegurancaApp.Generate.Service
 {
     public class PasswordGenerateService : IGenerateService
     {
-        private List<IGenerateCommand> _generators; 
+        private List<IGenerateCommand> _generators;
 
         public string Generate(int length, ValidationType validationType)
         {
-<<<<<<< HEAD
             var passwordValidation = new PasswordValidationService();
 
-            var word = GenerateChars(length, validationType);
-            var measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word.ToString());
+            var wordChar = GenerateChars(length, validationType);
+            var word = new String(wordChar);
+            var measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word);
 
             if (validationType == ValidationType.Strong)
                 while (measuredPasswordStrength != 100)
                 {
-                    word = GenerateChars(length, validationType);
-                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word.ToString());
+                    wordChar = GenerateChars(length, validationType);
+                    word = new String(wordChar);
+                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word);
                 }
             else if (validationType == ValidationType.Medium)
-                 while (measuredPasswordStrength != 50)
+                while (measuredPasswordStrength != 50)
                 {
-                    word = GenerateChars(length, validationType);
-                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word.ToString());
+                    wordChar = GenerateChars(length, validationType);
+                    word = new String(wordChar);
+                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word);
                 }
             else if (validationType == ValidationType.Weak)
                 while (measuredPasswordStrength != 20)
                 {
-                    word = GenerateChars(length, validationType);
-                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word.ToString());
+                    wordChar = GenerateChars(length, validationType);
+                    word = new String(wordChar);
+                    measuredPasswordStrength = passwordValidation.MeasurePasswordStrength(word);
                 }
 
-            return word.ToString();
-=======
-            _generateCommand = null;
-
->>>>>>> 5466386bf6f4269e36fe746c2380f4afe2639451
+            return word ;
         }
 
         private char[] GenerateChars(int length, ValidationType validationType)
         {
-<<<<<<< HEAD
             var word = new char[length];
             var random = new Random();
             for (var i = 0; i < length; i++)
@@ -55,20 +54,18 @@ namespace Facensa.SegurancaApp.Generate.Service
                 _generators = new List<IGenerateCommand>()
                 {
                     new LowerCaseGenerate(),
-                    new NumberGenerate(),
+                    new UpperCaseGenerate(),
                     new NumberGenerate()
                 };
 
-                if(validationType == ValidationType.Strong)
+                if (validationType == ValidationType.Strong)
                     _generators.Add(new SpecialCharGenerate());
 
+                Thread.Sleep(10);
                 word[i] = _generators[random.Next(0, _generators.Count)].Generate();
             }
 
             return word;
-=======
-            throw new NotImplementedException();
->>>>>>> 5466386bf6f4269e36fe746c2380f4afe2639451
         }
     }
 }
