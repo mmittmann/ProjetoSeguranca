@@ -1,14 +1,63 @@
-﻿<h2>Projeto de segurança</h2>
-<br /><br />
+﻿<div class="form-group">
+    <h2>Projeto de segurança</h2>
+</div>
 
-<fieldset>
-    <p id="resultado" class="alert"></p>
-    <legend>Senha:</legend>
-    <input type="text" id="password" />
-    <button id="validar">Validar</button>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Validar senha</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="control-label">Senha:</label>
+            <input type="text" id="password" />
+        </div>
 
+        <div class="form-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="validar">Validar</button>
+            </span>
+        </div>
 
-</fieldset>
+        <div class="form-group">
+            <label class="control-label">Resultado:</label>
+            <p id="resultado-validacao" class="alert"></p>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Gerar senha</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="form-group">
+            <label class="control-label">Tamanho:</label>
+            <input type="text" id="Length" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Tipo:</label>
+            <select id="ValidationType">
+                <option value="weak">Fraca</option>
+                <option value="medium">Média</option>
+                <option value="strong">Forte</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="gerar">Gerar</button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Senha Gerada:</label>
+            <p id="resultado-gerar"></p>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts{
     <script>
@@ -17,7 +66,7 @@
         $("#validar").click(function () {
 
             var pass = $("#password").val();
-            var $resultado = $("#resultado");
+            var $resultado = $("#resultado-validacao");
 
             $resultado.text("Carregando...");
 
@@ -45,6 +94,20 @@
                         $resultado.text("Senha fraca");
                     }
                 });
+        });
+
+
+        $("#gerar").click(function () {
+            var Length = $("#Length").val();
+            var ValidationType = $("#ValidationType").val();
+
+            var $resultado = $("#resultado-gerar");
+            $resultado.text("Gerando senha...");
+
+            $.get('http://localhost:5525/api/generate/', { Length: Length, ValidationType: ValidationType }
+			).done(function (data) {
+			    $resultado.text(data);
+			});
         });
     </script>
 }

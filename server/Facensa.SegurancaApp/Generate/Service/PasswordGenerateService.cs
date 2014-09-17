@@ -13,6 +13,7 @@ namespace Facensa.SegurancaApp.Generate.Service
 
         public string Generate(int length, ValidationType validationType)
         {
+<<<<<<< HEAD
             var passwordValidation = new PasswordValidationService();
 
             var word = GenerateChars(length, validationType);
@@ -38,10 +39,15 @@ namespace Facensa.SegurancaApp.Generate.Service
                 }
 
             return word.ToString();
+=======
+            _generateCommand = null;
+
+>>>>>>> 5466386bf6f4269e36fe746c2380f4afe2639451
         }
 
         private char[] GenerateChars(int length, ValidationType validationType)
         {
+<<<<<<< HEAD
             var word = new char[length];
             var random = new Random();
             for (var i = 0; i < length; i++)
@@ -60,6 +66,9 @@ namespace Facensa.SegurancaApp.Generate.Service
             }
 
             return word;
+=======
+            throw new NotImplementedException();
+>>>>>>> 5466386bf6f4269e36fe746c2380f4afe2639451
         }
     }
 }
