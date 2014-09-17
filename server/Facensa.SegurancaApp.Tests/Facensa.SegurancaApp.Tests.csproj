@@ -95,6 +95,7 @@
     <Compile Include="Generate\Commands\SpecialCharGenerateTest.cs" />
     <Compile Include="Generate\Commands\NumberCaseGenerateTest.cs" />
     <Compile Include="Generate\Commands\UpperCaseGenerateTest.cs" />
+    <Compile Include="Generate\Services\GeneratePassowrdServiceTest.cs" />
     <Compile Include="Validation\Commands\CharContainsValidationTest.cs" />
     <Compile Include="Validation\Commands\LengthPasswordValidationTest.cs" />
     <Compile Include="Validation\Commands\DictionaryValidationTest.cs" />
@@ -119,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\" />
-    <Folder Include="Generate\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

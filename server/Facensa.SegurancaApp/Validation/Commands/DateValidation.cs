@@ -26,7 +26,6 @@ namespace Facensa.SegurancaApp.Commands
                 return ValidationType.Strong;
 
             var startIndex = regex.Match(word).Index;
-            DateTime dateOut;
             String dateWord;
 
             try
