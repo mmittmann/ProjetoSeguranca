@@ -9,35 +9,28 @@ namespace Facensa.SegurancaApp.Tests.Services
     {
         private IValidationService _validationService;
 
-        [TestInitialize]
-        public void Init()
-        {
-            
-        }
-
-
         [TestMethod]
         public void WhenWeakWordIsPassedTheResultShouldBeWeak()
         {
-            var word = "teste";
+            const string word = "teste";
 
              _validationService = new PasswordValidationService();
 
             var result = _validationService.MeasurePasswordStrength(word);
 
-            Assert.IsTrue(result >= 25);
+            Assert.AreEqual(result, 20);
         }
 
         [TestMethod]
         public void WhenMediumWordIsPassedTheResultShouldBeMedium()
         {
-            var word = "MeDiUm123";
+            const string word = "MeDiUm123";
 
              _validationService = new PasswordValidationService();
 
              var result = _validationService.MeasurePasswordStrength(word);
 
-            Assert.IsTrue(result <= 75 && result >= 25);
+            Assert.AreEqual(result, 50);
         }
 
         [TestMethod]
@@ -49,11 +42,11 @@ namespace Facensa.SegurancaApp.Tests.Services
 
              var result = _validationService.MeasurePasswordStrength(word);
 
-             Assert.IsTrue(result >= 75);
+             Assert.AreEqual(result, 80);
         }
 
         [TestMethod]
-        public void WhenWordHas3CharsOrLessIsWeak()
+        public void WhenWordHas3CharsOrLessShouldBeWeak()
         {
             var word = "!A3";
 
@@ -61,7 +54,7 @@ namespace Facensa.SegurancaApp.Tests.Services
 
              var result = _validationService.MeasurePasswordStrength(word);
 
-            Assert.IsTrue(result <= 50);
+            Assert.AreEqual(result, 20);
         }
     }
 }

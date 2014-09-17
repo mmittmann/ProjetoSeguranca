@@ -133,21 +133,29 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Commands\CharContainsValidation.cs" />
-    <Compile Include="Commands\DateValidation.cs" />
-    <Compile Include="Commands\DicionaryValidation.cs" />
-    <Compile Include="Commands\IValidationCommand.cs" />
-    <Compile Include="Commands\LengthPasswordValidation.cs" />
-    <Compile Include="Commands\RepeatCharValidation.cs" />
+    <Compile Include="Generate\Commands\IGenerateCommand.cs" />
+    <Compile Include="Generate\Commands\LowerCaseGenerate.cs" />
+    <Compile Include="Generate\Commands\NumberGenerate.cs" />
+    <Compile Include="Generate\Commands\SpecialCharGenerate.cs" />
+    <Compile Include="Generate\Commands\UpperCaseGenerate.cs" />
+    <Compile Include="Generate\Service\IGenerateService.cs" />
+    <Compile Include="Generate\Service\PasswordGenerateService.cs" />
+    <Compile Include="Validation\Commands\CharContainsValidation.cs" />
+    <Compile Include="Validation\Commands\DateValidation.cs" />
+    <Compile Include="Validation\Commands\DicionaryValidation.cs" />
+    <Compile Include="Validation\Commands\IValidationCommand.cs" />
+    <Compile Include="Validation\Commands\LengthPasswordValidation.cs" />
+    <Compile Include="Validation\Commands\RepeatCharValidation.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ValidationType.cs" />
+    <Compile Include="Validation\Models\ValidationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IValidationService.cs" />
-    <Compile Include="Services\PasswordValidationService.cs" />
+    <Compile Include="Utils\DateUtilService.cs" />
+    <Compile Include="Validation\Services\IValidationService.cs" />
+    <Compile Include="Validation\Services\PasswordValidationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

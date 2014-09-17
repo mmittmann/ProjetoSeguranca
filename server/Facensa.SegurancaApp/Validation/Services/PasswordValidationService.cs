@@ -8,9 +8,13 @@ namespace Facensa.SegurancaApp.Services
 {
     public class PasswordValidationService : IValidationService
     {
+        private const double valueWeakPassword = 20, valueMediumPassword = 50, valueStrongPassword = 100;
+
         public double MeasurePasswordStrength(string word)
         {
-            double passwordStrength = 0;
+            double strongPassword = 0,
+                weakPassword = 0,
+                mediumPassword = 0;
 
             var validators = new List<IValidationCommand>
             {
@@ -26,13 +30,21 @@ namespace Facensa.SegurancaApp.Services
                 var validateResponse = validator.Validate(word);
 
                 if (validateResponse == ValidationType.Strong)
-                    passwordStrength += 20;
+                    strongPassword += 20;
+
+                if (validateResponse == ValidationType.Medium)
+                    mediumPassword += 20;
 
                 if (validateResponse == ValidationType.Weak)
-                    passwordStrength -= 20;
+                    weakPassword += 20;
             }
 
-            return passwordStrength;
+            if (weakPassword >= strongPassword && weakPassword >= mediumPassword)
+                return valueWeakPassword;
+            else if (mediumPassword >= strongPassword && mediumPassword > weakPassword)
+                return valueMediumPassword;
+            else
+                return valueStrongPassword;
         }
     }
 }

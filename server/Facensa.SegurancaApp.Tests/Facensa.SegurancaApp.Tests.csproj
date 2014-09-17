@@ -91,13 +91,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CharContainsValidationTest.cs" />
-    <Compile Include="Commands\LengthPasswordValidationTest.cs" />
-    <Compile Include="Commands\DictionaryValidationTest.cs" />
-    <Compile Include="Commands\RepeatCharValidationTest.cs" />
+    <Compile Include="Generate\Commands\LowerCaseGenerateTest.cs" />
+    <Compile Include="Generate\Commands\SpecialCharGenerateTest.cs" />
+    <Compile Include="Generate\Commands\NumberCaseGenerateTest.cs" />
+    <Compile Include="Generate\Commands\UpperCaseGenerateTest.cs" />
+    <Compile Include="Validation\Commands\CharContainsValidationTest.cs" />
+    <Compile Include="Validation\Commands\LengthPasswordValidationTest.cs" />
+    <Compile Include="Validation\Commands\DictionaryValidationTest.cs" />
+    <Compile Include="Validation\Commands\RepeatCharValidationTest.cs" />
+    <Compile Include="Validation\Commands\DateValidationTest.cs" />
     <Compile Include="Controllers\ValidationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ValidationServiceTest.cs" />
+    <Compile Include="Validation\Services\ValidationServiceTest.cs" />
+    <Compile Include="DateUtilServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -113,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\" />
+    <Folder Include="Generate\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

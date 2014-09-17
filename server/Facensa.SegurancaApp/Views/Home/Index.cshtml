@@ -25,13 +25,13 @@
             $.get('http://localhost:5525/api/validation/', { word: pass })
                 .done(function (data) {
 
-                    if (data > 80) {
+                    if (data > 60) {
                         $resultado.addClass("alert-success");
                         $resultado.removeClass("alert-danger");
                         $resultado.removeClass("alert-info");
 
                         $resultado.text("Senha forte");
-                    } else if (data > 40 && data <= 80) {
+                    } else if (data > 40 && data <= 60) {
                         $resultado.addClass("alert-info");
                         $resultado.removeClass("alert-danger");
                         $resultado.removeClass("alert-success");
