@@ -96,6 +96,7 @@
     <Compile Include="Generate\Commands\NumberCaseGenerateTest.cs" />
     <Compile Include="Generate\Commands\UpperCaseGenerateTest.cs" />
     <Compile Include="Generate\Services\GeneratePassowrdServiceTest.cs" />
+    <Compile Include="CaesarCipherCryptographer.cs" />
     <Compile Include="Validation\Commands\CharContainsValidationTest.cs" />
     <Compile Include="Validation\Commands\LengthPasswordValidationTest.cs" />
     <Compile Include="Validation\Commands\DictionaryValidationTest.cs" />
@@ -116,6 +117,10 @@
     <Folder Include="Application\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Facensa.SegurancaApp.Core\Facensa.SegurancaApp.Core.csproj">
+      <Project>{0d4abd0d-9dd3-4a1d-85b2-d9fb19d7ae7b}</Project>
+      <Name>Facensa.SegurancaApp.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Facensa.SegurancaApp\Facensa.SegurancaApp.csproj">
       <Project>{16e2c255-39d7-4d61-a0ed-fa12c09b2a1f}</Project>
       <Name>Facensa.SegurancaApp</Name>

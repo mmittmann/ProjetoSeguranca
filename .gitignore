@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-/bin
-/obj
-/packages
-Facensa.SegurancaApp/bin
-Facensa.SegurancaApp/obj
-Facensa.SegurancaApp.Tests/bin
-Facensa.SegurancaApp.Tests/obj
 *.suo
-
-=======
-/bower_components
-/node_modules
-/server/packages
-/server/TestResults
-/server/Facensa.SegurancaApp.Tests/bin
-/server/Facensa.SegurancaApp.Tests/obj
-/server/Facensa.SegurancaApp/bin
-/server/Facensa.SegurancaApp/obj
->>>>>>> 241ccaddb78bce00d614ef33a1f7a5ded59b83c4
+bower_components
+node_modules
+server/packages
+server/TestResults
+server/Facensa.SegurancaApp.Tests/bin
+server/Facensa.SegurancaApp.Tests/obj
+server/Facensa.SegurancaApp/bin
+server/Facensa.SegurancaApp/obj
+server/Facensa.SegurancaApp.Core/bin
+server/Facensa.SegurancaApp.Core/obj

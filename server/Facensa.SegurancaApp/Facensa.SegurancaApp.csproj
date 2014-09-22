@@ -134,29 +134,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\GenerateController.cs" />
-    <Compile Include="Generate\Commands\IGenerateCommand.cs" />
-    <Compile Include="Generate\Commands\LowerCaseGenerate.cs" />
-    <Compile Include="Generate\Commands\NumberGenerate.cs" />
-    <Compile Include="Generate\Commands\SpecialCharGenerate.cs" />
-    <Compile Include="Generate\Commands\UpperCaseGenerate.cs" />
-    <Compile Include="Generate\Service\IGenerateService.cs" />
-    <Compile Include="Generate\Service\PasswordGenerateService.cs" />
-    <Compile Include="Validation\Commands\CharContainsValidation.cs" />
-    <Compile Include="Validation\Commands\DateValidation.cs" />
-    <Compile Include="Validation\Commands\DicionaryValidation.cs" />
-    <Compile Include="Validation\Commands\IValidationCommand.cs" />
-    <Compile Include="Validation\Commands\LengthPasswordValidation.cs" />
-    <Compile Include="Validation\Commands\RepeatCharValidation.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Validation\Models\ValidationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\DateUtilService.cs" />
-    <Compile Include="Validation\Services\IValidationService.cs" />
-    <Compile Include="Validation\Services\PasswordValidationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -201,7 +184,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Facensa.SegurancaApp.Core\Facensa.SegurancaApp.Core.csproj">
+      <Project>{0d4abd0d-9dd3-4a1d-85b2-d9fb19d7ae7b}</Project>
+      <Name>Facensa.SegurancaApp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
