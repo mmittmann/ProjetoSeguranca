@@ -5,14 +5,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Facensa.SegurancaApp.Tests.Crypto
 {
     [TestClass]
-    public class AESCryptTest
+    public class TripleDesCryptTest
     {
-        private DESEncryptor _desCrypt;
+        private TripleDESEncrypt _tripleDesCrypt;
 
         [TestInitialize]
         public void Init()
         {
-            _desCrypt = new DESEncryptor();
+            _tripleDesCrypt = new TripleDESEncrypt();
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace Facensa.SegurancaApp.Tests.Crypto
         {
             var word = "Murilo";
 
-            var encryptedWord = _desCrypt.Encrypt(word);
+            var encryptedWord = _tripleDesCrypt.Encrypt(word);
 
             Assert.AreNotEqual(word, encryptedWord);
         }
@@ -30,8 +30,8 @@ namespace Facensa.SegurancaApp.Tests.Crypto
         {
             var word = "Murilo";
 
-            var encryptedWord = _desCrypt.Encrypt(word);
-            var decryptedWord = _desCrypt.Decrypt(encryptedWord);
+            var encryptedWord = _tripleDesCrypt.Encrypt(word);
+            var decryptedWord = _tripleDesCrypt.Decrypt(encryptedWord);
 
             Assert.AreEqual(word, decryptedWord);
         }

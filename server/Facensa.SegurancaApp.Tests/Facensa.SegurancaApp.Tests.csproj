@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypto\CaesarCipherCryptographerTest.cs" />
+    <Compile Include="Crypto\TripleDesCryptTest.cs" />
     <Compile Include="Crypto\DESCryptTest.cs" />
     <Compile Include="Generate\Commands\LowerCaseGenerateTest.cs" />
     <Compile Include="Generate\Commands\SpecialCharGenerateTest.cs" />

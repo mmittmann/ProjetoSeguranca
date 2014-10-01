@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto\TripleDESEncrypt.cs" />
     <Compile Include="Crypto\CaesarCipherCryptographer.cs" />
     <Compile Include="Crypto\DESEncryptor.cs" />
     <Compile Include="Generate\Commands\IGenerateCommand.cs" />

@@ -10,10 +10,12 @@ namespace Facensa.SegurancaApp.Controllers
 {
     public class AccountController : Controller
     {
-        private const int DeslocateNumber = 5;
         private readonly LoginJsonRepository _repository;
+        private readonly DESEncryptor _desEncryptor;
+
         public AccountController()
         {
+            _desEncryptor = new DESEncryptor();
             _repository = new LoginJsonRepository(System.Web.HttpContext.Current);
         }
 
@@ -25,10 +27,9 @@ namespace Facensa.SegurancaApp.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel login)
         {
-            var caesarCrypter = new CaesarChipherEncryptor();
             var users = _repository.GetAll();
 
-            if (!users.Any(u => u.Username == login.Username && caesarCrypter.Decrypt(u.Password, DeslocateNumber) == login.Password))
+            if (!users.Any(u => u.Username == login.Username && _desEncryptor.Decrypt(u.Password) == login.Password))
             {
                 this.ModelState.AddModelError("Username", "Usuário e senha não conferem!");
                 return View(login);
@@ -48,7 +49,7 @@ namespace Facensa.SegurancaApp.Controllers
             if (!ModelState.IsValid)
                 return View(loginModel);
 
-            var caesarEncrypter = new CaesarChipherEncryptor();
+           
             var validationService = new PasswordValidationService();
 
             if (loginModel.Password != loginModel.ConfirmPassword)
@@ -63,8 +64,8 @@ namespace Facensa.SegurancaApp.Controllers
                 return View(loginModel);
             }
 
-            loginModel.Password = caesarEncrypter.Encrypt(loginModel.Password, DeslocateNumber);
-            loginModel.ConfirmPassword = caesarEncrypter.Encrypt(loginModel.ConfirmPassword, 5);
+            loginModel.Password = _desEncryptor.Encrypt(loginModel.Password);
+            loginModel.ConfirmPassword = _desEncryptor.Encrypt(loginModel.ConfirmPassword);
 
             _repository.Save(loginModel);
 

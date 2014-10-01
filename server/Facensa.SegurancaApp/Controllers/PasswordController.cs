@@ -12,12 +12,13 @@ namespace Facensa.SegurancaApp.Controllers
     public class PasswordController : Controller
     {
         private readonly PasswordJsonRepository _repository;
-        private readonly DESEncryptor _desEncryptor;
+        private readonly CaesarChipherEncryptor _caesarChipherEncryptor;
+        private const int WordShift = 5;
 
         public PasswordController()
         {
             _repository = new PasswordJsonRepository(System.Web.HttpContext.Current);
-            _desEncryptor = new DESEncryptor();
+            _caesarChipherEncryptor = new CaesarChipherEncryptor();
         }
 
 
@@ -32,7 +33,7 @@ namespace Facensa.SegurancaApp.Controllers
         public ActionResult Show(string guid)
         {
             var password = _repository.GetSpecific(p => p.Id == guid);
-            password.Password = _desEncryptor.Decrypt(password.Password);
+            password.Password = _caesarChipherEncryptor.Decrypt(password.Password, WordShift);
 
             return View(password);
         }
@@ -50,7 +51,7 @@ namespace Facensa.SegurancaApp.Controllers
             try
             {
                 model.Id = Guid.NewGuid().ToString();
-                model.Password = _desEncryptor.Encrypt(model.Password);
+                model.Password = _caesarChipherEncryptor.Encrypt(model.Password, WordShift);
                 _repository.Save(model);
 
                 return RedirectToAction("Index");
@@ -78,7 +79,7 @@ namespace Facensa.SegurancaApp.Controllers
             try
             {
                 var oldPass = _repository.GetSpecific(p => p.Id == model.Id);
-                model.Password = _desEncryptor.Encrypt(model.Password);
+                model.Password = _caesarChipherEncryptor.Encrypt(model.Password, WordShift);
                 _repository.Edit(oldPass, model);
 
                 return RedirectToAction("Index");
