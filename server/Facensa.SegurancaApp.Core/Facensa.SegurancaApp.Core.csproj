@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto\CaesarCipherCryptographer.cs" />
+    <Compile Include="Crypto\DESEncryptor.cs" />
     <Compile Include="Generate\Commands\IGenerateCommand.cs" />
     <Compile Include="Generate\Commands\LowerCaseGenerate.cs" />
     <Compile Include="Generate\Commands\NumberGenerate.cs" />
@@ -59,7 +61,7 @@
     <Compile Include="Validation\Services\PasswordValidationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Crypto\" />
+    <Folder Include="Infra\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

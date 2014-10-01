@@ -1,0 +1,15 @@
+﻿@model Facensa.SegurancaApp.Model.LoginModel
+
+<h2>Loga aí ;)</h2>
+<hr />
+<div class="col-md-6">
+    @using (Html.BeginForm())
+    {
+
+        @Html.EditorFor(t => t.Username)
+
+        @Html.EditorFor(t => t.Password)
+
+        <input type="submit" value="Logar" />
+    }
+</div>

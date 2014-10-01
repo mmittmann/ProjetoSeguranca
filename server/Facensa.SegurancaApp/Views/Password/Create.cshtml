@@ -1,0 +1,15 @@
+﻿@model Facensa.SegurancaApp.Model.PasswordModel
+
+<h2>Cadastre sua senha</h2>
+<hr />
+<div class="col-md-6">
+    @using (Html.BeginForm())
+    {
+
+        @Html.EditorFor(t => t.System)
+        @Html.EditorFor(t => t.User)
+        @Html.EditorFor(t => t.Password)
+
+        <input type="submit" value="Cadastrar" />
+    }
+</div>

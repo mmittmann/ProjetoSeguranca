@@ -8,10 +8,41 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-  
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+    <header class="navbar navbar-inverse navbar-fixed-top">
+        <nav role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Projeto de Segurança</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                @Html.ActionLink("Senhas", "Index", "Password")
+                            </li>
+
+                        </ul>
+                    }
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @{
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    @Html.ActionLink("Logoff", "Logoff", "Account");
+                                }
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section style="margin-top: 70px">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

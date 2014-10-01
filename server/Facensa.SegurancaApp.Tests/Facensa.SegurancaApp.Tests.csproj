@@ -91,12 +91,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto\CaesarCipherCryptographerTest.cs" />
+    <Compile Include="Crypto\DESCryptTest.cs" />
     <Compile Include="Generate\Commands\LowerCaseGenerateTest.cs" />
     <Compile Include="Generate\Commands\SpecialCharGenerateTest.cs" />
     <Compile Include="Generate\Commands\NumberCaseGenerateTest.cs" />
     <Compile Include="Generate\Commands\UpperCaseGenerateTest.cs" />
     <Compile Include="Generate\Services\GeneratePassowrdServiceTest.cs" />
-    <Compile Include="CaesarCipherCryptographer.cs" />
+    <Compile Include="NumberOperations\NumberOperationsTest.cs" />
     <Compile Include="Validation\Commands\CharContainsValidationTest.cs" />
     <Compile Include="Validation\Commands\LengthPasswordValidationTest.cs" />
     <Compile Include="Validation\Commands\DictionaryValidationTest.cs" />

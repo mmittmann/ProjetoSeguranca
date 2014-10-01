@@ -1,0 +1,12 @@
+﻿@model Facensa.SegurancaApp.Model.PasswordModel
+
+@using (Html.BeginForm()) { 
+@Html.HiddenFor(p => p.Id)
+@Html.HiddenFor(p => p.System)
+@Html.HiddenFor(p => p.User)
+@Html.HiddenFor(p => p.Password)
+
+    <h4>Você tem certeza que quer excluir esta senha?</h4>
+    <input type="submit" class="btn btn-danger" value="Sim"/>
+    @Html.ActionLink("Não", "Index", null, new {@class = "btn btn-default" })
+}

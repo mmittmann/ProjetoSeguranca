@@ -1,0 +1,30 @@
+﻿@model System.Collections.Generic.List<Facensa.SegurancaApp.Model.PasswordModel>
+
+<h2>Senhas cadastradas:</h2>
+<table class="table table-condensed table-striped">
+
+    <thead>
+        <tr>
+            <td>Sistema</td>
+            <td>Usuário</td>
+            <td>Senha criptografada</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var password in Model)
+        {
+            <tr>
+                <td>@password.System</td>
+                <td>@password.User</td>
+                <td>@password.Password</td>
+                <td>@Html.ActionLink("Editar", "Edit", new { id = @password.Id })</td>
+                <td>@Html.ActionLink("Excluir", "Delete", new { id = @password.Id })</td>
+                <td>@Html.ActionLink("Mostrar", "Show", new { guid = @password.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<div class="col-md-2 col-md-offset-10">
+    @Html.ActionLink("Criar novo", "Create")
+</div>

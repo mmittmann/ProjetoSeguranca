@@ -1,0 +1,16 @@
+﻿@model Facensa.SegurancaApp.Model.LoginModel
+
+<h2>Sua primeira vez aqui? Cadastre um usuário e uma senha!</h2>
+<hr />
+<div class="col-md-6">
+    @using (Html.BeginForm())
+    {
+
+        @Html.EditorFor(t => t.Username)
+
+        @Html.EditorFor(t => t.Password)
+        @Html.EditorFor(t => t.ConfirmPassword)
+
+        <input type="submit" value="Cadastrar" />
+    }
+</div>

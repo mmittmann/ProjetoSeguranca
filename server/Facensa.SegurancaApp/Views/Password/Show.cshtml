@@ -1,0 +1,12 @@
+﻿@model Facensa.SegurancaApp.Model.PasswordModel
+
+<fieldset>
+    <legend>Dados sigilosos</legend>
+
+    <h4>Sistema: @Model.System</h4>
+    <h4>Usuário: @Model.User</h4>
+    <h4>Senha descriptografada: @Model.Password</h4>
+</fieldset>
+<div class="col-md-2 col-md-offset-10">
+    @Html.ActionLink("Voltar", "Index")
+</div>
