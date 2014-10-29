@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Facensa.SegurancaApp.Models;
+﻿using Facensa.SegurancaApp.Models;
 
-namespace Facensa.SegurancaApp.Generate.Service
+namespace Facensa.SegurancaApp.Core.Generate.Service
 {
     public interface IGenerateService
     {
         string Generate(int length, ValidationType validationType);
+        string Generate(int length);
     }
 }

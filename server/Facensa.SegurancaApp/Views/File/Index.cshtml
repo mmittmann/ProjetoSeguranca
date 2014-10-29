@@ -1,0 +1,63 @@
+﻿
+@model Facensa.SegurancaApp.Model.FileModel
+
+<h2>Backup arquivo de senha.</h2>
+
+<a id="downloadAndGenerateKey" href="#">Download</a>
+
+<br>
+
+<p id="target"></p>
+
+<hr />
+
+
+<h2>Upload de arquivo de senha.</h2>
+<form action="/File/Upload" method="post" enctype="multipart/form-data" class="form-inline">
+    <div class="row">
+        <div class="col-md-2">
+            <label for="file">Arquivo:</label>
+        </div>
+
+
+        <div class="col-md-4">
+
+            <input type="file" name="postedFile" id="file" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Chave:
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(t => t.Key)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4">
+
+            <input type="submit" class="btn btn-default" value="Enviar" />
+        </div>
+
+    </div>
+    @if (ViewBag.Erro != null)
+    {
+        <p>@ViewBag.Erro</p>
+    }
+</form>
+
+@section scripts{
+    <script>
+        $("#downloadAndGenerateKey").click(function () {
+            $.get("/file/GerarateKey", function (data) {
+
+                var target = document.getElementById("target");
+                target.textContent = "Sua chave é: " + data;
+
+                window.location = "/file/download/?key=" + data;
+            });
+        });
+    </script>
+}

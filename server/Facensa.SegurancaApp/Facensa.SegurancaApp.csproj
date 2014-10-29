@@ -118,11 +118,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\GenerateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRepository.cs" />
     <Compile Include="Controllers\PasswordController.cs" />
     <Compile Include="CustomValidations\StrongPassword.cs" />
+    <Compile Include="Model\FileModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -133,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\users.json" />
-    <None Include="App_Data\passwords.json" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -172,6 +173,7 @@
     <Content Include="Views\Password\Show.cshtml" />
     <Content Include="Views\Password\Edit.cshtml" />
     <Content Include="Views\Password\Delete.cshtml" />
+    <Content Include="Views\File\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Facensa.SegurancaApp.Core\Facensa.SegurancaApp.Core.csproj">

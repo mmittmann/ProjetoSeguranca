@@ -9,7 +9,17 @@ namespace Facensa.SegurancaApp.Core.Crypto
 {
     public class TripleDESEncrypt
     {
-        private static readonly byte[] bytes = Encoding.ASCII.GetBytes("#78?U????-\b#??)r??????a");
+        private static  byte[] bytes = Encoding.ASCII.GetBytes("#78?U????-\b#??)r??????a");
+
+        public TripleDESEncrypt()
+        {
+            
+        }
+
+        public TripleDESEncrypt(string key)
+        {
+            bytes = Encoding.ASCII.GetBytes(key);
+        }
 
         public string Encrypt(string input)
         {

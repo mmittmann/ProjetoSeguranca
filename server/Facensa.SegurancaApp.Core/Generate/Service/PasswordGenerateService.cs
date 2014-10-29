@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Facensa.SegurancaApp.Commands;
+using Facensa.SegurancaApp.Core.Generate.Service;
 using Facensa.SegurancaApp.Generate.Commands;
 using Facensa.SegurancaApp.Models;
 using Facensa.SegurancaApp.Services;
@@ -43,6 +45,16 @@ namespace Facensa.SegurancaApp.Generate.Service
                 }
 
             return word ;
+        }
+
+        public string Generate(int length)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789qwertyuiopasdfghjklzxcvbnm";
+            var random = new Random();
+            return new string(
+                Enumerable.Repeat(chars, length)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray());
         }
 
         private char[] GenerateChars(int length, ValidationType validationType)

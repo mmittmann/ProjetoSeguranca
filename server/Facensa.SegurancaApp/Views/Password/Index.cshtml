@@ -7,7 +7,6 @@
         <tr>
             <td>Sistema</td>
             <td>Usuário</td>
-            <td>Senha criptografada</td>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +15,6 @@
             <tr>
                 <td>@password.System</td>
                 <td>@password.User</td>
-                <td>@password.Password</td>
                 <td>@Html.ActionLink("Editar", "Edit", new { id = @password.Id })</td>
                 <td>@Html.ActionLink("Excluir", "Delete", new { id = @password.Id })</td>
                 <td>@Html.ActionLink("Mostrar", "Show", new { guid = @password.Id })</td>
