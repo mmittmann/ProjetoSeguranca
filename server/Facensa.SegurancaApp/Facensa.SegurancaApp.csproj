@@ -39,11 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\packages\MathNet.Numerics.3.2.3\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -111,7 +115,9 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -123,6 +129,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRepository.cs" />
     <Compile Include="Controllers\PasswordController.cs" />
+    <Compile Include="Controllers\SharePasswordController.cs" />
     <Compile Include="CustomValidations\StrongPassword.cs" />
     <Compile Include="Model\FileModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
@@ -174,6 +181,7 @@
     <Content Include="Views\Password\Edit.cshtml" />
     <Content Include="Views\Password\Delete.cshtml" />
     <Content Include="Views\File\Index.cshtml" />
+    <Content Include="Views\SharePassword\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Facensa.SegurancaApp.Core\Facensa.SegurancaApp.Core.csproj">

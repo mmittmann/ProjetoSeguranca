@@ -1,0 +1,60 @@
+﻿@model System.Collections.Generic.List<Facensa.SegurancaApp.Model.PasswordModel>
+
+@if (@ViewBag.PublicKey1 != null)
+{
+    <h2>@ViewBag.PublicKey1,  @ViewBag.PublicKey2</h2>
+}
+<h2>Senhas cadastradas:</h2>
+<table class="table table-condensed table-striped">
+
+    <thead>
+        <tr>
+            <td>Sistema</td>
+            <td>Usuário</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var password in Model)
+        {
+            <tr>
+                <td>@password.System</td>
+                <td>@password.User</td>
+                <td>
+                    @Html.CheckBox("selectedPasswords")
+                <td>@Html.ActionLink("Editar", "Edit", new { id = @password.Id })</td>
+                <td>@Html.ActionLink("Excluir", "Delete", new { id = @password.Id })</td>
+                <td>@Html.ActionLink("Mostrar", "Show", new { guid = @password.Id })</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+<hr />
+@using (Html.BeginForm("Download", "SharePassword"))
+{
+    <p>Chave publica cliente:</p>
+    @Html.TextBox("publikKeyVal")
+    @Html.TextBox("publicKey")
+
+    <input type="submit" value="Download" />
+}
+
+
+
+@using (Html.BeginForm("Upload", "SharePassword", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="arquivo" />
+    <input type="submit" value="Enviar" />
+}
+
+@if (ViewBag.Content != null)
+{
+    <p>
+        @ViewBag.Content
+    </p>
+}
+
+<hr />
